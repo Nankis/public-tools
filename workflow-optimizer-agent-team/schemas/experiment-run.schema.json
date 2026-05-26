@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "task_id",
+    "workflow_version",
+    "model",
+    "completed",
+    "duration_seconds",
+    "estimated_context_tokens",
+    "files_read_count",
+    "quality_score_1_5",
+    "critical_errors",
+    "risk_missed",
+    "usable_without_rework",
+    "failure_mode"
+  ],
+  "properties": {
+    "task_id": {"type": "string"},
+    "workflow_version": {"type": "string", "enum": ["baseline", "candidate"]},
+    "model": {"type": "string"},
+    "completed": {"type": "boolean"},
+    "duration_seconds": {"type": "number"},
+    "estimated_context_tokens": {"type": "number"},
+    "files_read_count": {"type": "number"},
+    "manual_clarifications_count": {"type": "number"},
+    "tool_calls_count": {"type": "number"},
+    "quality_score_1_5": {"type": "number", "minimum": 1, "maximum": 5},
+    "critical_errors": {"type": "array", "items": {"type": "string"}},
+    "risk_missed": {"type": "boolean"},
+    "usable_without_rework": {"type": "boolean"},
+    "failure_mode": {"type": ["string", "null"]},
+    "notes": {"type": "string"}
+  }
+}
