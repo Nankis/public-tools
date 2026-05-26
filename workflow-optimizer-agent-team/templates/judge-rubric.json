@@ -1,0 +1,16 @@
+{
+  "quality_score_1_5": {
+    "1": "Fails the task or introduces severe errors.",
+    "2": "Partially completes the task but needs major rework.",
+    "3": "Usable with clear gaps or manual repair.",
+    "4": "Usable with minor edits.",
+    "5": "Production-ready for the task sample."
+  },
+  "merge_rules": [
+    "Three samples can only justify proceed_to_pilot, revise, or reject.",
+    "Formal merge requires at least five samples and at least three sample types.",
+    "Do not merge if quality drops, critical risk is missed, or candidate succeeds only by removing necessary guardrails.",
+    "If token cost drops but quality variance rises, trigger Red Team or more samples."
+  ],
+  "decisions": ["proceed_to_pilot", "merge", "merge_with_guardrail", "revise", "retry", "reject"]
+}
